@@ -20,7 +20,7 @@ public class Episodio {
     private Serie serie;
 
     @Deprecated
-    protected Episodio() {
+    public Episodio() {
         //obrigatorio JPA
     }
 
@@ -82,9 +82,28 @@ public class Episodio {
         this.dataLancamento = dataLancamento;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Serie getSerie() {
+        return serie;
+    }
+
+    public void setSerie(Serie serie) {
+        this.serie = serie;
+    }
+
     @Override
     public String toString() {
-        return "temporada=%d, titulo='%s', numeroEpisodio=%d, avaliacao=%s, dataLancamento=%s"
-                .formatted(temporada, titulo, numeroEpisodio, avaliacao, dataLancamento);
+        return "temporada=" + temporada +
+                ", titulo='" + titulo + '\'' +
+                ", numeroEpisodio=" + numeroEpisodio +
+                ", avaliacao=" + avaliacao +
+                ", dataLancamento=" + dataLancamento ;
     }
 }

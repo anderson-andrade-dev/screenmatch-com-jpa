@@ -12,6 +12,7 @@ public enum Categoria {
     CRIME("Crime");
 
     private String categoriaOmdb;
+    private String categoriaPortugues;
 
     Categoria(String categoriaOmdb) {
         this.categoriaOmdb = categoriaOmdb;
@@ -24,5 +25,14 @@ public enum Categoria {
             }
         }
         throw new IllegalArgumentException("Categoria não encontrada para a string");
+    }
+
+    public static Categoria fromPortugues(String text) {
+        for (Categoria categoria : Categoria.values()) {
+            if (categoria.categoriaPortugues.equalsIgnoreCase(text)) {
+                return categoria;
+            }
+        }
+        throw new IllegalArgumentException("Nenhuma categoria encontrada para a string fornecida: " + text);
     }
 }
